@@ -7,11 +7,6 @@ namespace VisualogyxETL
 {
     class ReplicaDatabaseContext : DbContext
     {
-        public ReplicaDatabaseContext(DbContextOptions<OriginDatabaseContext> options)
-            : base(options)
-        {
-        }
-
         public ReplicaDatabaseContext()
         {
 

@@ -69,7 +69,8 @@ namespace VisualogyxETL
                         {
                             try
                             {
-                                replicadatabasecontext.Database.ExecuteSqlCommand("insert into " + tbname + " values " + columnnames, ParameterName);
+                                int insertedrow = replicadatabasecontext.Database.ExecuteSqlCommand("insert into " + tbname + " values " + columnnames, ParameterName);
+                                Console.WriteLine(insertedrow + " row inserted in table - " + tbname);
                             }
                             catch (Exception e)
                             {
@@ -77,6 +78,9 @@ namespace VisualogyxETL
                                     duplicateIdError += OriginalDataReader["Id"] + ",";
                                 else
                                     ErrorId += OriginalDataReader["Id"] + ",";
+
+                                Console.WriteLine("Error in Id - " + OriginalDataReader["Id"] + " of table " + tbname + " and Error is :- ");
+                                Console.WriteLine(e.Message);
                             }
                         }
                     }
@@ -93,6 +97,7 @@ namespace VisualogyxETL
                 duplicateIdError += "),";
                 ErrorId += "),";
             }
+            Console.Read();
         }
     }
 }

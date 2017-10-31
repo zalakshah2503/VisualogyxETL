@@ -7,11 +7,6 @@ namespace VisualogyxETL
 {
     class OriginDatabaseContext : DbContext
     {
-        public OriginDatabaseContext(DbContextOptions<OriginDatabaseContext> options)
-            : base(options)
-        {
-        }
-
         public OriginDatabaseContext()
         {
 
